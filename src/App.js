@@ -1,25 +1,19 @@
 import React from 'react';
 import './App.css';
-import Amplify from 'aws-amplify';
+import Amplify, { Auth } from 'aws-amplify';
 import awsconfig from './aws-exports';
 import { withAuthenticator } from 'aws-amplify-react';
+import { 
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,  
+} from 'react-router-dom'
+
+import { Home } from './pages/home'
+import { Login } from './pages/login'
 
 Amplify.configure(awsconfig)
-
-const signUpConfig = {
-  header: 'My Customized Sign Up',
-  hideAllDefaults: true,
-  defaultCountryCode: '1',
-  signUpFields: [
-    {
-      label: 'My custom email label',
-      key: 'email',
-      required: true,
-      displayOrder: 1,
-      type: 'string'
-    },
-  ]
-};
 
 class App extends React.Component {
   constructor(props) {
@@ -32,7 +26,11 @@ class App extends React.Component {
     }
   }
 
-  
+  printCurrentUser = () => {
+    const data = Auth.currentAuthenticatedUser().then((response => {
+      console.log(response['username'])
+    }))
+  }
 
   selectImage = (event) => {
     if (event != null) {
@@ -49,22 +47,20 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <p>
-            Please select an image
-          </p>
-          <img src={this.state.imgURL} style={{maxWidth: 750, maxHeight: 500}}/>
-          <form>
-            <input type="file" onChange={this.selectImage}/>
-          </form>
-          <button onClick={this.uploadSelected}>
-            Upload
-          </button>
-        </header>
+      <div>
+        <Router>
+          <Switch>
+            <Route exact path="/login">
+              <Login/>
+            </Route>
+            <Route exact path="/">
+              <Home/>
+            </Route>
+          </Switch>
+        </Router>
       </div>
     );
   }
 }
 
-export default withAuthenticator(App, true);
+export default App;
