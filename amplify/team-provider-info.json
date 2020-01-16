@@ -1,0 +1,33 @@
+{
+    "backend": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-umove-backend-132442-authRole",
+            "UnauthRoleArn": "arn:aws:iam::805643243008:role/amplify-umove-backend-132442-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::805643243008:role/amplify-umove-backend-132442-authRole",
+            "Region": "us-west-2",
+            "DeploymentBucketName": "amplify-umove-backend-132442-deployment",
+            "UnauthRoleName": "amplify-umove-backend-132442-unauthRole",
+            "StackName": "amplify-umove-backend-132442",
+            "StackId": "arn:aws:cloudformation:us-west-2:805643243008:stack/amplify-umove-backend-132442/6fda50a0-37dd-11ea-bc08-0a1e344a92a6",
+            "AmplifyAppId": "d3fouv3mfzx3mt"
+        }
+    },
+    "newbackend": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-umove-newbackend-165712-authRole",
+            "UnauthRoleArn": "arn:aws:iam::805643243008:role/amplify-umove-newbackend-165712-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::805643243008:role/amplify-umove-newbackend-165712-authRole",
+            "Region": "us-west-2",
+            "DeploymentBucketName": "amplify-umove-newbackend-165712-deployment",
+            "UnauthRoleName": "amplify-umove-newbackend-165712-unauthRole",
+            "StackName": "amplify-umove-newbackend-165712",
+            "StackId": "arn:aws:cloudformation:us-west-2:805643243008:stack/amplify-umove-newbackend-165712/22cd99c0-37fb-11ea-9da5-0af4fb34eba2",
+            "AmplifyAppId": "d3fouv3mfzx3mt"
+        },
+        "categories": {
+            "auth": {
+                "umove38191e55": {}
+            }
+        }
+    }
+}
