@@ -7,8 +7,13 @@
     justify-content: center;
 }
 
-.Input-box {
-    background-color: white;
+.Element-container {
     margin-bottom: 15px;
-    
+}
+
+.Input-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }

@@ -5,13 +5,13 @@ import awsconfig from './aws-exports';
 import { withAuthenticator } from 'aws-amplify-react';
 import { 
   BrowserRouter as Router,
-  Switch,
   Route,
-  Link,  
+  BrowserRouter,
+  Redirect,  
 } from 'react-router-dom'
 
-import { Home } from './pages/home'
-import { Login } from './pages/login'
+import Home from './pages/home'
+import Login from './pages/login'
 
 Amplify.configure(awsconfig)
 
@@ -47,18 +47,13 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <Router>
-          <Switch>
-            <Route exact path="/login">
-              <Login/>
-            </Route>
-            <Route exact path="/">
-              <Home/>
-            </Route>
-          </Switch>
-        </Router>
-      </div>
+      <BrowserRouter>
+        <div>
+          <Route path='/home' component={Home}/>
+          <Route path='/login' component={Login}/>
+          <Redirect to='/login' />
+        </div>
+      </BrowserRouter>
     );
   }
 }
