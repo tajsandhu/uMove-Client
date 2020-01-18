@@ -1,4 +1,4 @@
-# Project Title
+# uMove - University of Movement
 
 One Paragraph of project description goes here
 
