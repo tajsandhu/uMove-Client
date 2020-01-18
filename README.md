@@ -1,6 +1,6 @@
 # uMove - University of Movement
 
-One Paragraph of project description goes here
+Our goal is to have an application where students of movement can come and have a place where they can not only see their movement, but receive corrections as well. Through the use of artificial intelligence and a good framework, we'll be able to start the foundation for a school that empowers its students to become the teachers and with the promise that we will be constantly learning right alongside you.
 
 ## Getting Started
 
