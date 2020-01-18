@@ -8,7 +8,8 @@ import { Home } from '../pages/home'
 
 export default class Login extends React.Component {
     signIn = () => {
-        this.props.history.push('/home')
+        
+        //this.props.history.push('/home')
     }
     signUp = () => {
         this.props.history.push('/signup')

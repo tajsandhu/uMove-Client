@@ -6,6 +6,9 @@ export default class Signup extends React.Component {
     signUp = () => {
         this.props.history.push('./confirm')
     }
+    cancel = () => {
+        this.props.history.push('./login')
+    }
     render() {
         return(
             <div className='Signup-container'>
@@ -42,10 +45,10 @@ export default class Signup extends React.Component {
                     />
                 </div>
                 <div className='Element-container'>
-                    <Button className='Button' style={styles.button}>Sign Up</Button>
+                    <Button className='Button' style={styles.button} onClick={this.signUp}>Sign Up</Button>
                 </div>
                 <div className='Element-container'>
-                    <Button className='Button' style={styles.button}>Cancel</Button>
+                    <Button className='Button' style={styles.button} onClick={this.cancel}>Cancel</Button>
                 </div>
             </div>
         )
