@@ -35,7 +35,7 @@ export default class Home extends React.Component {
     render() {
         return (
             <div className='Home-container'>
-                <p>
+                <p style={{color: 'white'}}>
                     Please select an image
                 </p>
                 <img src={this.state.imgURL} style={{maxWidth: 750, maxHeight: 500}}/>
@@ -47,15 +47,28 @@ export default class Home extends React.Component {
                     type="file"
                     onChange={this.selectImage}
                 />
-                <label htmlFor="contained-button-file">
-                    <Button variant="contained" color="primary" component="span">
-                        Upload
+                <div className='Button'>
+                    <label htmlFor="contained-button-file">
+                        <Button variant="contained" style={styles.button} component="span">
+                            Upload
+                        </Button>
+                    </label>
+                </div>
+                <div className='Button'>
+                    <Button variant="contained" style={styles.button} component="span">
+                        Send
                     </Button>
-                </label>
-                <Button variant="contained" color="primary" component="span">
-                    Send
-                </Button>
+                </div>
             </div>
         )
     }
+}
+
+const styles = {
+    button: {
+        background: 'linear-gradient(120deg, #076fa3 30%, #4fa870 83%)',
+        color: 'white',
+        height: 40,
+        width: 200,
+    },
 }

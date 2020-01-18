@@ -1,28 +1,20 @@
 import React from 'react'
-import { Auth } from 'aws-amplify'
-import { Redirect, Route, BrowserRouter, Switch } from 'react-router-dom'
-import { Button, TextField, Link } from '@material-ui/core'
-import '../styles/login.css'
-import { red } from '@material-ui/core/colors'
-import { Home } from '../pages/home'
+import { TextField, Button } from '@material-ui/core'
+import '../styles/signup.css'
 
-export default class Login extends React.Component {
-    signIn = () => {
-        this.props.history.push('/home')
-    }
+export default class Signup extends React.Component {
     signUp = () => {
-        this.props.history.push('/signup')
+        this.props.history.push('./confirm')
     }
     render() {
-
-        return (
-            <div className='Login-container'>      
+        return(
+            <div className='Signup-container'>
                 <div className='Element-container'>
                     <TextField 
                         className='Input-box' 
-                        type='text' 
+                        style={styles.textInput}
+                        type='text'
                         placeholder='Email'
-                        style={styles.textInput}
                         InputProps={{
                             disableUnderline: true
                         }}
@@ -30,16 +22,15 @@ export default class Login extends React.Component {
                             style: {
                                 textAlign: 'center'
                             }
-                        }}
-                        required={true}
+                        }} 
                     />
                 </div>
                 <div className='Element-container'>
-                    <TextField
+                    <TextField 
                         className='Input-box' 
-                        type='text' 
-                        placeholder='Password'
                         style={styles.textInput}
+                        type='text'
+                        placeholder='Password'
                         InputProps={{
                             disableUnderline: true
                         }}
@@ -47,15 +38,14 @@ export default class Login extends React.Component {
                             style: {
                                 textAlign: 'center'
                             }
-                        }}
-                        required={true}
+                        }} 
                     />
                 </div>
                 <div className='Element-container'>
-                    <Button style={styles.button} onClick={this.signIn}>Login</Button>
+                    <Button className='Button' style={styles.button}>Sign Up</Button>
                 </div>
                 <div className='Element-container'>
-                    <Button style={styles.button} onClick={this.signUp}>Sign Up</Button>
+                    <Button className='Button' style={styles.button}>Cancel</Button>
                 </div>
             </div>
         )
@@ -71,9 +61,9 @@ const styles = {
         borderRadius: 30
     },
     textInput: {
+        background: 'white',
         height: 40,
         width: 325,
-        background: 'white',
-        borderRadius: 30,
+        borderRadius: 30
     }
 }

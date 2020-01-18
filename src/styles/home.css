@@ -1,7 +1,12 @@
 .Home-container {
+    background-color: #282c34;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     min-height: 100vh;
+}
+
+.Button {
+    margin-bottom: 5px;
 }

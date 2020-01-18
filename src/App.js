@@ -12,6 +12,8 @@ import {
 
 import Home from './pages/home'
 import Login from './pages/login'
+import Signup from './pages/signup';
+import Confirm from './pages/confirm';
 
 Amplify.configure(awsconfig)
 
@@ -51,6 +53,8 @@ class App extends React.Component {
         <div>
           <Route path='/home' component={Home}/>
           <Route path='/login' component={Login}/>
+          <Route path='/signup' component={Signup}/>
+          <Route path='/confirm' component={Confirm}/>
           <Redirect to='/login' />
         </div>
       </BrowserRouter>
