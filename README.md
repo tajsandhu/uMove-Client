@@ -4,7 +4,7 @@ Our goal is to have an application where students of movement can come and have 
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+To begin learning, all you need is a camera and internet access. Make sure the camera stays as still as possible when taking video or a picture and try to get the whole body in the picture for best results. 
 
 ### Prerequisites
 
