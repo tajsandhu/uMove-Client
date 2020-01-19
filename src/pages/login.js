@@ -7,9 +7,16 @@ import { red } from '@material-ui/core/colors'
 import { Home } from '../pages/home'
 
 export default class Login extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            username: '',
+            password: '',
+        }
+    }
     signIn = () => {
-        
-        //this.props.history.push('/home')
+        Auth.signIn(this.state.username, this.state.password)
+        .then(() => this.props.history.push('/home'))
     }
     signUp = () => {
         this.props.history.push('/signup')
@@ -22,15 +29,15 @@ export default class Login extends React.Component {
                     <TextField 
                         className='Input-box' 
                         type='text' 
-                        placeholder='Email'
+                        placeholder='Username'
+                        value={this.state.email}
+                        onChange={e => this.setState({username: e.target.value})}
                         style={styles.textInput}
                         InputProps={{
                             disableUnderline: true
                         }}
                         inputProps={{
-                            style: {
-                                textAlign: 'center'
-                            }
+                            style: styles.textInput
                         }}
                         required={true}
                     />
@@ -38,16 +45,15 @@ export default class Login extends React.Component {
                 <div className='Element-container'>
                     <TextField
                         className='Input-box' 
-                        type='text' 
+                        type='password' 
                         placeholder='Password'
-                        style={styles.textInput}
+                        value={this.state.password}
+                        onChange={e => this.setState({password: e.target.value})}
                         InputProps={{
                             disableUnderline: true
                         }}
                         inputProps={{
-                            style: {
-                                textAlign: 'center'
-                            }
+                            style: styles.textInput
                         }}
                         required={true}
                     />
@@ -72,9 +78,11 @@ const styles = {
         borderRadius: 30
     },
     textInput: {
-        height: 40,
+        display: 'flex',
+        height: 30,
         width: 325,
         background: 'white',
         borderRadius: 30,
+        textAlign: 'center',
     }
 }

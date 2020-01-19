@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button, Input } from '@material-ui/core'
+import { Auth } from 'aws-amplify'
 import '../styles/home.css'
 
 export default class Home extends React.Component {
@@ -14,9 +15,9 @@ export default class Home extends React.Component {
     }
     
     printCurrentUser = () => {
-        /*const data = Auth.currentAuthenticatedUser().then((response => {
+        const data = Auth.currentAuthenticatedUser().then((response => {
           console.log(response['username'])
-        }))*/
+        }))
     }
     
     selectImage = (event) => {
@@ -55,7 +56,7 @@ export default class Home extends React.Component {
                     </label>
                 </div>
                 <div className='Button'>
-                    <Button variant="contained" style={styles.button} component="span">
+                    <Button variant="contained" style={styles.button} onClick={this.printCurrentUser} component="span">
                         Send
                     </Button>
                 </div>

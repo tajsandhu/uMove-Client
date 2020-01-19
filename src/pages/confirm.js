@@ -1,10 +1,27 @@
 import React from 'react'
 import { TextField, Button } from '@material-ui/core'
 import '../styles/confirm.css'
+import { Auth } from 'aws-amplify'
 
 export default class Confirm extends React.Component {
-    confirm = () => {
-        this.props.history.push('./login')
+    constructor(props) {
+        super(props)
+        this.state = {
+            email: '',
+            code: '',
+        }
+    }
+    confirm = async () => {
+        let user = null
+        try {
+            user = await Auth.confirmSignUp(this.state.email, this.state.code)
+
+        } catch(e) {
+            window.alert(e.message)
+        }
+        if (user != null) {
+            this.props.history.push('./login')
+        }
     }
 
     cancel = () => {
@@ -20,6 +37,7 @@ export default class Confirm extends React.Component {
                         type='text'
                         style={styles.textInput}
                         placeholder='Email'
+                        onChange={e => this.setState({email: e.target.value})}
                         InputProps={{
                             disableUnderline: true
                         }}
@@ -36,6 +54,7 @@ export default class Confirm extends React.Component {
                         type='text'
                         style={styles.textInput}
                         placeholder='Code'
+                        onChange={e => this.setState({code: e.target.value})}
                         InputProps={{
                             disableUnderline: true
                         }}
