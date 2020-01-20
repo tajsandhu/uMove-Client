@@ -33,9 +33,9 @@ AWS built-in tests
 
 ## Contributing
 
-Daniel Jackson Bursch
-Tajbir Sandhu
-Ricardo Ramos
+* Daniel Jackson Bursch
+* Tajbir Sandhu
+* Ricardo Ramos
 
 ## Versioning
 
