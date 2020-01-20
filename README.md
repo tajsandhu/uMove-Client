@@ -22,27 +22,14 @@ Start by making an account and then all you have to do is choose a photo or vide
 
 AWS built-in tests
 
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Ensuring good comments
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
 ## Built With
 
 * AWS Lambda
 * Google's PoseNet
 * DynamoDB
+* AWS SSS
+* AWS Amplify
+* AWS API Gateway
 
 ## Contributing
 
