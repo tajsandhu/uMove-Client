@@ -4,37 +4,23 @@ Our goal is to have an application where students of movement can come and have 
 
 ## Getting Started
 
-To begin learning, all you need is a camera and internet access. Make sure the camera stays as still as possible when taking video or a picture and try to get the whole body in the picture for best results. 
+To begin learning, all you need is a camera and internet access. Make sure the camera stays as still as possible when taking video or a picture and try to get the whole body in the picture for best results. Being at least 8 feet away is recommended and it's very important to only have a single person in the video for quality results.
 
-### Prerequisites
+### How to access uMove
 
-What things you need to install the software and how to install them
+As of January 20th, 2020, you'll be able to access a web version of uMove by going to the link www.universityofmovement.com or umove.app.
 
-```
-Give examples
-```
+In the future we will be working on a frontend for both iOS and Android, so the user can have easier access with a phone.
 
-### Installing
+### How does it work?
 
-A step by step series of examples that tell you how to get a development env running
+With the use of AWS cloud services we're able to have our application be both cheap yet scalable. Every service is run through amazon from the frontend to the backend to the database, so we will also have the same trusted security as huge corporations and even the US government.
 
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
+Start by making an account and then all you have to do is choose a photo or video from your system and upload to our server and you'll instantly get a response back with your photo and the bodypoints of the target identified. You'll also be given the choice to download the new video if desired.
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
+AWS built-in tests
 
 ### Break down into end to end tests
 
@@ -46,11 +32,7 @@ Give an example
 
 ### And coding style tests
 
-Explain what these tests test and why
-
-```
-Give an example
-```
+Ensuring good comments
 
 ## Deployment
 
@@ -58,23 +40,24 @@ Add additional notes about how to deploy this on a live system
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* AWS Lambda
+* Google's PoseNet
+* DynamoDB
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+Daniel Jackson Bursch
+Tajbir Sandhu
+Ricardo Ramos
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+Version 0
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Daniel Jackson Bursch** - *Initial work* -
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
 ## License
 
@@ -82,6 +65,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+All the kids that showed me the fascination for learning all different kinds of fun and unique movements.
