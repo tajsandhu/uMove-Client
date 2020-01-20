@@ -8,7 +8,7 @@ To begin learning, all you need is a camera and internet access. Make sure the c
 
 ### How to access uMove
 
-As of January 20th, 2020, you'll be able to access a web version of uMove by going to the link www.universityofmovement.com or umove.app.
+As of January 20th, 2020, you'll be able to access a web version of uMove by going to the link www.universityofmovement.com or www.umove.app.
 
 In the future we will be working on a frontend for both iOS and Android, so the user can have easier access with a phone.
 
