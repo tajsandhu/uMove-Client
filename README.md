@@ -20,7 +20,9 @@ Start by making an account and then all you have to do is choose a photo or vide
 
 https://www.youtube.com/watch?v=Ig2uaGxpj3c&feature=youtu.be
 
-https://www.youtube.com/watch?v=<Ig2uaGxpj3c&feature>
+https://www.youtube.com/watch?v=<Ig2uaGxpj3c&feature=youtu.be>
+
+[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://www.youtube.com/watch?v=Ig2uaGxpj3c&feature=youtu.be)
 
 ## Running the tests
 
