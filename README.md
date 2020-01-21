@@ -28,12 +28,13 @@ AWS built-in tests
 
 ## Built With
 
-* AWS Lambda
-* Google's PoseNet
-* DynamoDB
+* Google's Tensorflow
+* Google's PoseNet model
+* AWS DynamoDB
 * AWS SSS
 * AWS Amplify
 * AWS API Gateway
+* AWS Lambda
 
 ## Contributing
 
