@@ -21,7 +21,7 @@ Start by making an account and then all you have to do is choose a photo or vide
 Example 1, Frame from a video: 
 ![alt text][logo]
 
-[logo]: Image-1-1.jpeg "Example 1"
+[logo]: test.png "Example 1"
 
 ## Running the tests
 
