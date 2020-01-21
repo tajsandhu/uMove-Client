@@ -21,7 +21,7 @@ Start by making an account and then all you have to do is choose a photo or vide
 Example: 
 ![alt text][logo]
 
-[logo]: test.png "Example 1"
+[logo]: CLASSlightGraySlow.mp4 "Example 1"
 
 ## Running the tests
 
