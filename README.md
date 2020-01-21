@@ -26,6 +26,8 @@ https://www.youtube.com/watch?v=<Ig2uaGxpj3c&feature=youtu.be>
 
 [![Watch the video](https://kapwi.ng/c/URI0geZl)]
 
+https://kapwi.ng/c/URI0geZl
+
 ## Running the tests
 
 AWS built-in tests
