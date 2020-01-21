@@ -20,6 +20,14 @@ Start by making an account and then all you have to do is choose a photo or vide
 
 ![Watch the video](final_5e26492f8d6e7d00164e69fe_535259.gif)
 
+<p align="center">
+  <img width="460" height="300" src="final_5e26492f8d6e7d00164e69fe_535259.gif">
+</p>
+
+<p align="center">
+  <img width="460" height="300" src=![Watch the video](final_5e26492f8d6e7d00164e69fe_535259.gif)>
+</p>
+
 ## Running the tests
 
 AWS built-in tests
