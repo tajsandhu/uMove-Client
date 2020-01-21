@@ -18,14 +18,8 @@ With the use of AWS cloud services we're able to have our application be both ch
 
 Start by making an account and then all you have to do is choose a photo or video from your system and upload to our server and you'll instantly get a response back with your photo and the bodypoints of the target identified. You'll also be given the choice to download the new video if desired.
 
-![Watch the video](final_5e26492f8d6e7d00164e69fe_535259.gif)
-
 <p align="center">
-  <img width="460" height="300" src="final_5e26492f8d6e7d00164e69fe_535259.gif">
-</p>
-
-<p align="center">
-  <img width="460" height="300" src=![Watch the video](final_5e26492f8d6e7d00164e69fe_535259.gif)>
+  <img width="400" height="500" src="final_5e26492f8d6e7d00164e69fe_535259.gif">
 </p>
 
 ## Running the tests
