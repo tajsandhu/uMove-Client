@@ -9,6 +9,7 @@ import {
   BrowserRouter,
   Redirect,  
 } from 'react-router-dom'
+import { Button, Input, AppBar, Tabs, Tab } from '@material-ui/core'
 
 import Home from './pages/home'
 import Login from './pages/login'
@@ -25,20 +26,20 @@ class App extends React.Component {
       imgURL: null,
       height: 500,
       width: 500,
+      show: 'true'
     }
   }
 
-  printCurrentUser = () => {
-    const data = Auth.currentAuthenticatedUser().then((response => {
-      console.log(response['username'])
-    }))
+  getShow() {
+    return this.state.show
   }
 
   selectImage = (event) => {
     if (event != null) {
       this.setState({
         img: event.target.files[0],
-        imgURL: URL.createObjectURL(event.target.files[0])
+        imgURL: URL.createObjectURL(event.target.files[0]),
+        show: false
       })
     }
   }
@@ -48,15 +49,28 @@ class App extends React.Component {
   }
 
   render() {
+    const {show} = this.state
     return (
       <BrowserRouter>
+        { show &&
+        (<div>
+            <AppBar>
+                <Tabs>
+                    <Tab label='Home'/>
+                    <Tab label='About'/>
+                    <Tab label='Upload'/>
+                </Tabs>
+            </AppBar>
+        </div>)}
         <div>
-          <Route path='/home' component={Home}/>
-          <Route path='/login' component={Login}/>
-          <Route path='/signup' component={Signup}/>
-          <Route path='/confirm' component={Confirm}/>
           <Redirect to='/login' />
         </div>
+        <Route path='/home'>
+          <Home option={this.getShow.bind(this)}/>
+        </Route>
+        <Route path='/login' component={Login}/>
+        <Route path='/signup' component={Signup}/>
+        <Route path='/confirm' component={Confirm}/>
       </BrowserRouter>
     );
   }

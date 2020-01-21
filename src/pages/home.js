@@ -1,9 +1,10 @@
 import React from 'react'
-import { Button, Input } from '@material-ui/core'
+import { Button, Input, AppBar, Tabs, Tab } from '@material-ui/core'
 import { Auth } from 'aws-amplify'
 import '../styles/home.css'
 
 export default class Home extends React.Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -30,7 +31,7 @@ export default class Home extends React.Component {
     }
     
     uploadSelected = () => {
-        window.alert(this.state.imgURL)
+        console.log(this.props.getShow)
     }
 
     render() {
@@ -60,6 +61,11 @@ export default class Home extends React.Component {
                         Send
                     </Button>
                 </div>
+                <a href={this.state.imgURL} download>
+                    <Button variant="contained" style={styles.button} component="span">
+                        download
+                    </Button>
+                </a>
             </div>
         )
     }
@@ -72,4 +78,8 @@ const styles = {
         height: 40,
         width: 200,
     },
+    tab: {
+        display: 'flex',
+        flexDirection: 'row'
+    }
 }

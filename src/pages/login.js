@@ -14,9 +14,15 @@ export default class Login extends React.Component {
             password: '',
         }
     }
-    signIn = () => {
-        Auth.signIn(this.state.username, this.state.password)
-        .then(() => this.props.history.push('/home'))
+    signIn = async() => {
+        let user = null
+        try {
+            user = await Auth.signIn(this.state.username, this.state.password)
+        } catch(e) {
+            window.alert(e.message)
+        }
+        if (user != null)
+            this.props.history.push('./home')
     }
     signUp = () => {
         this.props.history.push('/signup')
