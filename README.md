@@ -18,10 +18,10 @@ With the use of AWS cloud services we're able to have our application be both ch
 
 Start by making an account and then all you have to do is choose a photo or video from your system and upload to our server and you'll instantly get a response back with your photo and the bodypoints of the target identified. You'll also be given the choice to download the new video if desired.
 
-Example: 
+ 
 ![alt text][logo]
 
-[logo]: CLASSlightGraySlow.mp4 "Example 1"
+[logo]: https://www.youtube.com/watch?v=Ig2uaGxpj3c&feature=youtu.be "Example 1"
 
 ## Running the tests
 
