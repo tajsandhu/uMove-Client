@@ -28,6 +28,8 @@ https://www.youtube.com/watch?v=<Ig2uaGxpj3c&feature=youtu.be>
 
 https://kapwi.ng/c/URI0geZl
 
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/g4VoVim" data-context="false" ><a href="//imgur.com/a/g4VoVim"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
 ## Running the tests
 
 AWS built-in tests
