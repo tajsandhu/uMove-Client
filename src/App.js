@@ -4,17 +4,17 @@ import Amplify, { Auth } from 'aws-amplify';
 import awsconfig from './aws-exports';
 import { withAuthenticator } from 'aws-amplify-react';
 import { 
-  BrowserRouter as Router,
-  Route,
   BrowserRouter,
-  Redirect,  
+  Route,
+  Redirect, 
+  Switch
 } from 'react-router-dom'
-import { Button, Input, AppBar, Tabs, Tab } from '@material-ui/core'
 
-import Home from './pages/home'
-import Login from './pages/login'
-import Signup from './pages/signup';
-import Confirm from './pages/confirm';
+import {Main} from './pages/main/main'
+import Home from './pages/main/home'
+import Login from './pages/authentication/login'
+import Signup from './pages/authentication/signup';
+import Confirm from './pages/authentication/confirm';
 
 Amplify.configure(awsconfig)
 
@@ -52,25 +52,12 @@ class App extends React.Component {
     const {show} = this.state
     return (
       <BrowserRouter>
-        { show &&
-        (<div>
-            <AppBar>
-                <Tabs>
-                    <Tab label='Home'/>
-                    <Tab label='About'/>
-                    <Tab label='Upload'/>
-                </Tabs>
-            </AppBar>
-        </div>)}
         <div>
-          <Redirect to='/login' />
+          <Route path='/main' component={Main}/>
+          <Route path='/login' component={Login}/>
+          <Route path='/signup' component={Signup}/>
+          <Route path='/confirm' component={Confirm}/>
         </div>
-        <Route path='/home'>
-          <Home option={this.getShow.bind(this)}/>
-        </Route>
-        <Route path='/login' component={Login}/>
-        <Route path='/signup' component={Signup}/>
-        <Route path='/confirm' component={Confirm}/>
       </BrowserRouter>
     );
   }

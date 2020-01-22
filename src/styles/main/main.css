@@ -1,0 +1,14 @@
+.Main-container {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.Main-tab {
+    display: flex;
+    color: white;
+}
+
+.Main-content-container {
+    flex: 1
+}

@@ -1,7 +1,7 @@
 import React from 'react'
 import { TextField, Button } from '@material-ui/core'
 import { Link } from 'react-router-dom'
-import '../styles/signup.css'
+import '../../styles/authentication/signup.css'
 import { Auth } from 'aws-amplify'
 
 export default class Signup extends React.Component {

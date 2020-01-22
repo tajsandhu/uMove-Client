@@ -1,6 +1,6 @@
 import React from 'react'
 import { TextField, Button } from '@material-ui/core'
-import '../styles/confirm.css'
+import '../../styles/authentication/confirm.css'
 import { Auth } from 'aws-amplify'
 
 export default class Confirm extends React.Component {

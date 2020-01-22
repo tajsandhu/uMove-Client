@@ -2,9 +2,9 @@ import React from 'react'
 import { Auth } from 'aws-amplify'
 import { Redirect, Route, BrowserRouter, Switch } from 'react-router-dom'
 import { Button, TextField, Link } from '@material-ui/core'
-import '../styles/login.css'
+import '../../styles/authentication/login.css'
 import { red } from '@material-ui/core/colors'
-import { Home } from '../pages/home'
+import { Home } from '../main/home'
 
 export default class Login extends React.Component {
     constructor(props) {

@@ -1,0 +1,7 @@
+.Home-container {
+    background-color: #282c34;
+    display: flex;
+    color: white;
+    flex-direction: column;
+    min-height: 100vh;
+}

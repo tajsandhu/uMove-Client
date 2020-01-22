@@ -1,9 +1,9 @@
 import React from 'react'
 import { Button, Input, AppBar, Tabs, Tab } from '@material-ui/core'
 import { Auth } from 'aws-amplify'
-import '../styles/home.css'
+import '../../styles/main/upload.css'
 
-export default class Home extends React.Component {
+export default class Upload extends React.Component {
 
     constructor(props) {
         super(props);
@@ -36,7 +36,7 @@ export default class Home extends React.Component {
 
     render() {
         return (
-            <div className='Home-container'>
+            <div className='Upload-container'>
                 <p style={{color: 'white'}}>
                     Please select an image
                 </p>
