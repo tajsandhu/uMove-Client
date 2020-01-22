@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import Amplify, { Auth } from 'aws-amplify';
 import awsconfig from './aws-exports';
-import { withAuthenticator } from 'aws-amplify-react';
 import { 
   BrowserRouter,
   Route,
@@ -11,7 +10,7 @@ import {
 } from 'react-router-dom'
 
 import {Main} from './pages/main/main'
-import Home from './pages/main/home'
+import Error from './pages/main/error'
 import Login from './pages/authentication/login'
 import Signup from './pages/authentication/signup';
 import Confirm from './pages/authentication/confirm';
@@ -26,8 +25,27 @@ class App extends React.Component {
       imgURL: null,
       height: 500,
       width: 500,
-      show: 'true'
+      signedIn: false,
     }
+  }
+
+  printCurrentUser = () => {
+    Auth.currentAuthenticatedUser().then((response => {
+      console.log(response['username'])
+    }))
+  }
+
+  componentDidMount() {
+    this.printCurrentUser()
+  }
+
+  getAuthStatus() {
+    try {
+      Auth.currentAuthenticatedUser()
+    } catch (error) {
+      return false
+    }
+    return true
   }
 
   getShow() {
@@ -49,15 +67,18 @@ class App extends React.Component {
   }
 
   render() {
-    const {show} = this.state
     return (
       <BrowserRouter>
-        <div>
+        {!this.getAuthStatus() &&
+          <Redirect to='/login'/>
+        }
+        <Switch>
           <Route path='/main' component={Main}/>
           <Route path='/login' component={Login}/>
           <Route path='/signup' component={Signup}/>
           <Route path='/confirm' component={Confirm}/>
-        </div>
+          <Route component={Error}/>
+        </Switch>
       </BrowserRouter>
     );
   }

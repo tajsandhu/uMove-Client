@@ -1,10 +1,7 @@
 import React from 'react'
 import { Auth } from 'aws-amplify'
-import { Redirect, Route, BrowserRouter, Switch } from 'react-router-dom'
-import { Button, TextField, Link } from '@material-ui/core'
+import { Button, TextField } from '@material-ui/core'
 import '../../styles/authentication/login.css'
-import { red } from '@material-ui/core/colors'
-import { Home } from '../main/home'
 
 export default class Login extends React.Component {
     constructor(props) {
@@ -14,6 +11,12 @@ export default class Login extends React.Component {
             password: '',
         }
     }
+
+    componentDidMount() {
+        let user = Auth.currentAuthenticatedUser()
+        console.log(user)
+    }
+
     signIn = async() => {
         let user = null
         try {
@@ -22,7 +25,7 @@ export default class Login extends React.Component {
             window.alert(e.message)
         }
         if (user != null)
-            this.props.history.push('./home')
+            this.props.history.push('./main')
     }
     signUp = () => {
         this.props.history.push('/signup')

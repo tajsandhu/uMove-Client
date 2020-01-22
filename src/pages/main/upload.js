@@ -1,6 +1,5 @@
 import React from 'react'
-import { Button, Input, AppBar, Tabs, Tab } from '@material-ui/core'
-import { Auth } from 'aws-amplify'
+import { Button } from '@material-ui/core'
 import '../../styles/main/upload.css'
 
 export default class Upload extends React.Component {
@@ -14,12 +13,12 @@ export default class Upload extends React.Component {
             width: 500,
         }
     }
-    
+    /*
     printCurrentUser = () => {
         const data = Auth.currentAuthenticatedUser().then((response => {
           console.log(response['username'])
         }))
-    }
+    }*/
     
     selectImage = (event) => {
         if (event != null) {
@@ -40,7 +39,7 @@ export default class Upload extends React.Component {
                 <p style={{color: 'white'}}>
                     Please select an image
                 </p>
-                <img src={this.state.imgURL} style={{maxWidth: 750, maxHeight: 500}}/>
+                <img src={this.state.imgURL} style={{maxWidth: 750, maxHeight: 500}} alt='meaningful text'/>
                 <input
                     accept="image/*"
                     id="contained-button-file"
