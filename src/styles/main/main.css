@@ -4,9 +4,19 @@
     flex-direction: column;
 }
 
-.Main-tab {
+.Main-app-bar {
     display: flex;
-    color: white;
+    flex-direction: row;
+}
+
+.Main-toolbar {
+    display: flex;
+    flex-direction: row;
+}
+
+.Logout-button {
+    position: absolute;
+    right: 10;
 }
 
 .Main-content-container {

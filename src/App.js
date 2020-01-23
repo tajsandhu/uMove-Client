@@ -26,7 +26,12 @@ class App extends React.Component {
       height: 500,
       width: 500,
       signedIn: false,
+
     }
+  }
+
+  componentDidMount = () => {
+    this.getAuthStatus()
   }
 
   printCurrentUser = () => {
@@ -35,17 +40,14 @@ class App extends React.Component {
     }))
   }
 
-  componentDidMount() {
-    this.printCurrentUser()
-  }
-
   getAuthStatus() {
-    try {
-      Auth.currentAuthenticatedUser()
-    } catch (error) {
-      return false
-    }
-    return true
+    let answer = null
+    Auth.currentAuthenticatedUser().then(response => {
+      this.setState({signedIn: true})
+    }).catch(e => {
+      if (e === 'not authenticated')
+        this.setState({signedIn: false})
+    })
   }
 
   getShow() {
@@ -69,8 +71,11 @@ class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        {!this.getAuthStatus() &&
+        {!this.state.signedIn &&
           <Redirect to='/login'/>
+        }
+        {this.state.signedIn &&
+          <Redirect to='/main'/>
         }
         <Switch>
           <Route path='/main' component={Main}/>
