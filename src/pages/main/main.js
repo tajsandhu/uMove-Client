@@ -1,8 +1,8 @@
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
-import Home from './home'
+import { Home } from './home'
 import { Tabs, Tab, AppBar, Button, Toolbar } from '@material-ui/core'
-import '../../styles/main/main.css'
+import '../../styles/main.css'
 import Upload from './upload'
 import About from './about'
 import { Auth } from 'aws-amplify'
@@ -57,7 +57,7 @@ export class Main extends React.Component {
                                 <Tab label='Upload' value={'Upload'} onClick={this.toUpload}/>
                                 <Tab label='About' value={'About'} onClick={this.toAbout}/>
                             </Tabs>
-                            <Button style={{right: 10, position: 'absolute'}} onClick={this.logout}>
+                            <Button style={{right: 10, position: 'absolute', color: 'white'}} onClick={this.logout}>
                                 Logout
                             </Button>
                         </Toolbar>

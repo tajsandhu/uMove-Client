@@ -1,12 +1,10 @@
 import React from 'react'
-import '../../styles/main/about.css'
+import '../../styles/about.css'
 
-export default class About extends React.Component {
-    render() {
-        return(
-            <div className='About-container'>
-                <h1>About</h1>
-            </div>
-        )
-    }
+export default function About() {
+    return(
+        <div className='About-container'>
+            <h1>About</h1>
+        </div>
+    )
 }

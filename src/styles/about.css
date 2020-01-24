@@ -2,6 +2,4 @@
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    background-color: #282c34;
-    color: white;
 }

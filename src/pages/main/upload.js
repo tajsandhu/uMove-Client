@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button } from '@material-ui/core'
-import '../../styles/main/upload.css'
+import '../../styles/upload.css'
 
 export default class Upload extends React.Component {
 

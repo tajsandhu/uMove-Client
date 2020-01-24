@@ -1,8 +1,9 @@
 import React from 'react'
-import { TextField, Button } from '@material-ui/core'
+import { Button } from '@material-ui/core'
 import { Link } from 'react-router-dom'
-import '../../styles/authentication/signup.css'
+import '../../styles/signup.css'
 import { Auth } from 'aws-amplify'
+import { TextInput } from '../../reusable'
 
 export default class Signup extends React.Component {
     constructor(props) {
@@ -44,66 +45,29 @@ export default class Signup extends React.Component {
     render() {
         return(
             <div className='Signup-container'>
-                <div className='Element-container'>
-                    <TextField 
-                        className='Input-box' 
-                        style={styles.textInput}
-                        type='text'
-                        placeholder='Username'
-                        onChange={e => this.setState({username: e.target.value})}
-                        InputProps={{
-                            disableUnderline: true
-                        }}
-                        inputProps={{
-                            style: {
-                                textAlign: 'center'
-                            }
-                        }} 
-                    />
-                </div>
-                <div className='Element-container'>
-                    <TextField 
-                        className='Input-box' 
-                        style={styles.textInput}
-                        type='text'
-                        placeholder='Email'
-                        onChange={e => this.setState({email: e.target.value})}
-                        InputProps={{
-                            disableUnderline: true
-                        }}
-                        inputProps={{
-                            style: {
-                                textAlign: 'center'
-                            }
-                        }} 
-                    />
-                </div>
-                <div className='Element-container'>
-                    <TextField 
-                        className='Input-box' 
-                        style={styles.textInput}
-                        type='password'
-                        placeholder='Password'
-                        onChange={e => this.setState({password: e.target.value})}
-                        InputProps={{
-                            disableUnderline: true
-                        }}
-                        inputProps={{
-                            style: {
-                                textAlign: 'center'
-                            }
-                        }} 
-                    />
-                </div>
+                <TextInput 
+                    label='Username' 
+                    function={e => this.setState({username: e.target.value})} 
+                    type='text'
+                    style={styles.textInput}
+                />
+                <TextInput
+                    label='Email'
+                    function={e => this.setState({email: e.target.value})}
+                    type='text'
+                    style={styles.textInput}
+                />
+                <TextInput
+                    label='Password'
+                    function={e => this.setState({password: e.target.value})}
+                    type='password'
+                    style={styles.textInput}
+                />
                 <div>
-                    <Link to={'./confirm'} style={{color: 'white'}}>Confirm Code?</Link>
+                    <Link to={'./confirm'}>Confirm Code?</Link>
                 </div>
-                <div className='Element-container'>
-                    <Button className='Button' style={styles.button} onClick={this.signUp}>Sign Up</Button>
-                </div>
-                <div className='Element-container'>
-                    <Button className='Button' style={styles.button} onClick={this.cancel}>Cancel</Button>
-                </div>
+                <Button className='Button' style={styles.button} onClick={this.signUp}>Sign Up</Button>
+                <Button className='Button' style={styles.button} onClick={this.cancel}>Cancel</Button>
             </div>
         )
     }
@@ -115,12 +79,11 @@ const styles = {
         color: 'white',
         height: 40,
         width: 325,
-        borderRadius: 30
+        marginBottom:5,
     },
     textInput: {
-        background: 'white',
-        height: 40,
+        height: 30,
         width: 325,
-        borderRadius: 30
+        marginBottom:5,
     }
 }

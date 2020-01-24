@@ -1,7 +1,8 @@
 import React from 'react'
-import { TextField, Button } from '@material-ui/core'
-import '../../styles/authentication/confirm.css'
+import { Button } from '@material-ui/core'
+import '../../styles/confirm.css'
 import { Auth } from 'aws-amplify'
+import { TextInput } from '../../reusable'
 
 export default class Confirm extends React.Component {
     constructor(props) {
@@ -31,46 +32,20 @@ export default class Confirm extends React.Component {
     render() {
         return(
             <div className='Confirm-container'>
-                <div className='Element-container'>
-                    <TextField 
-                        className='Input-box'
-                        type='text'
-                        style={styles.textInput}
-                        placeholder='Email'
-                        onChange={e => this.setState({email: e.target.value})}
-                        InputProps={{
-                            disableUnderline: true
-                        }}
-                        inputProps={{
-                            style: {
-                                textAlign: 'center'
-                            }
-                        }}
-                    />
-                </div>
-                <div className='Element-container'>
-                    <TextField 
-                        className='Input-box'
-                        type='text'
-                        style={styles.textInput}
-                        placeholder='Code'
-                        onChange={e => this.setState({code: e.target.value})}
-                        InputProps={{
-                            disableUnderline: true
-                        }}
-                        inputProps={{
-                            style: {
-                                textAlign: 'center'
-                            }
-                        }}
-                    />
-                </div>
-                <div className='Element-container'>
-                    <Button style={styles.button} onClick={this.confirm}>Confirm</Button>
-                </div>
-                <div className='Element-container'>
-                    <Button style={styles.button} onClick={this.cancel}>Cancel</Button>
-                </div>
+                <TextInput
+                    label='Email'
+                    function={e => this.setState({email: e.target.value})}
+                    type='text'
+                    style={styles.textInput}
+                />
+                <TextInput
+                    label='Code'
+                    function={e => this.setState({email: e.target.value})}
+                    type='text'
+                    style={styles.textInput}
+                />
+                <Button style={styles.button} onClick={this.confirm}>Confirm</Button>
+                <Button style={styles.button} onClick={this.cancel}>Cancel</Button>
             </div>
         )
     }
@@ -82,12 +57,11 @@ const styles = {
         color: 'white',
         height: 40,
         width: 325,
-        borderRadius: 30
+        marginBottom: 5
     },
     textInput: {
-        background: 'white',
         width: 325,
         height: 40,
-        borderRadius: 30
+        marginBottom: 5
     }
 }
