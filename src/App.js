@@ -1,25 +1,21 @@
 import React from 'react';
 import './App.css';
-import Amplify from 'aws-amplify';
+import Amplify, { Auth } from 'aws-amplify';
 import awsconfig from './aws-exports';
-import { withAuthenticator } from 'aws-amplify-react';
+import { 
+  BrowserRouter,
+  Route,
+  Redirect, 
+  Switch
+} from 'react-router-dom'
+
+import {Main} from './pages/main/main'
+import Error from './pages/main/error'
+import Login from './pages/authentication/login'
+import Signup from './pages/authentication/signup';
+import Confirm from './pages/authentication/confirm';
 
 Amplify.configure(awsconfig)
-
-const signUpConfig = {
-  header: 'My Customized Sign Up',
-  hideAllDefaults: true,
-  defaultCountryCode: '1',
-  signUpFields: [
-    {
-      label: 'My custom email label',
-      key: 'email',
-      required: true,
-      displayOrder: 1,
-      type: 'string'
-    },
-  ]
-};
 
 class App extends React.Component {
   constructor(props) {
@@ -29,16 +25,41 @@ class App extends React.Component {
       imgURL: null,
       height: 500,
       width: 500,
+      signedIn: false,
+
     }
   }
 
-  
+  componentDidMount = () => {
+    this.getAuthStatus()
+  }
+
+  printCurrentUser = () => {
+    Auth.currentAuthenticatedUser().then((response => {
+      console.log(response['username'])
+    }))
+  }
+
+  getAuthStatus() {
+    let answer = null
+    Auth.currentAuthenticatedUser().then(response => {
+      this.setState({signedIn: true})
+    }).catch(e => {
+      if (e === 'not authenticated')
+        this.setState({signedIn: false})
+    })
+  }
+
+  getShow() {
+    return this.state.show
+  }
 
   selectImage = (event) => {
     if (event != null) {
       this.setState({
         img: event.target.files[0],
-        imgURL: URL.createObjectURL(event.target.files[0])
+        imgURL: URL.createObjectURL(event.target.files[0]),
+        show: false
       })
     }
   }
@@ -49,22 +70,23 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <p>
-            Please select an image
-          </p>
-          <img src={this.state.imgURL} style={{maxWidth: 750, maxHeight: 500}}/>
-          <form>
-            <input type="file" onChange={this.selectImage}/>
-          </form>
-          <button onClick={this.uploadSelected}>
-            Upload
-          </button>
-        </header>
-      </div>
+      <BrowserRouter>
+        {!this.state.signedIn &&
+          <Redirect to='/login'/>
+        }
+        {this.state.signedIn &&
+          <Redirect to='/main'/>
+        }
+        <Switch>
+          <Route path='/main' component={Main}/>
+          <Route path='/login' component={Login}/>
+          <Route path='/signup' component={Signup}/>
+          <Route path='/confirm' component={Confirm}/>
+          <Route component={Error}/>
+        </Switch>
+      </BrowserRouter>
     );
   }
 }
 
-export default withAuthenticator(App, true);
+export default App;
