@@ -16,7 +16,7 @@ export default class Signup extends React.Component {
     }
     signUp = async () => {
         
-        const thisemail = this.state.email
+        /*const thisemail = this.state.email
         let user = null
         try {
             user = await Auth.signUp({
@@ -32,7 +32,8 @@ export default class Signup extends React.Component {
         }
         if (user != null) {
             this.props.history.push('./confirm')
-        }
+        }*/
+        this.props.history.push('./personal')
     }
 
     confirm = () => {
@@ -45,33 +46,6 @@ export default class Signup extends React.Component {
     render() {
         return(
             <div className='Signup-container'>
-                <TextInput
-                    id='first-name-text-field'
-                    label='First Name'
-                    function={() => {}}
-                    type='text'
-                    style={styles.textInput}
-                />
-                <TextInput
-                    id='last-name-text-field'
-                    label='Last Name'
-                    function={() => {}}
-                    type='text'
-                    style={styles.textInput}
-                />
-                <InputLabel htmlFor='gender-selector'>Gender</InputLabel>
-                <NativeSelect id='gender-selector'>
-                    <option value='Male'>Male</option>
-                    <option value='Female'>Female</option>
-                    <option value='Other'>Other</option>
-                </NativeSelect>
-                <TextInput
-                    id='birthdate-selector'
-                    label='Birth Date'
-                    type='date'
-                    style={styles.textInput}
-                    defaultValue='1901-01-01'
-                />
                 <TextInput 
                     id='username-text-field'
                     label='Username' 
@@ -89,6 +63,13 @@ export default class Signup extends React.Component {
                 <TextInput
                     id='password-field'
                     label='Password'
+                    function={e => this.setState({password: e.target.value})}
+                    type='text'
+                    style={styles.textInput}
+                />
+                <TextInput
+                    id='confirm-password-field'
+                    label='Confirm Password'
                     function={e => this.setState({password: e.target.value})}
                     type='text'
                     style={styles.textInput}

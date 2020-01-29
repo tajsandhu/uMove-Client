@@ -1,10 +1,11 @@
 import React, {Fragment} from 'react'
-import { TextField, InputLabel } from '@material-ui/core'
+import { TextField, InputLabel, StylesProvider } from '@material-ui/core'
+import { findByLabelText } from '@testing-library/react'
 
 
 export function TextInput(props) {
     return(
-        <Fragment>
+        <div style={styles.TextContainer}>
             <InputLabel htmlFor={props.id}>{props.label}</InputLabel>
         	<TextField
                 id={props.id}
@@ -22,6 +23,13 @@ export function TextInput(props) {
         	    }
         	    defaultValue={props.default}
         	/>
-        </Fragment>
+        </div>
     )
+}
+
+const styles = {
+    TextContainer: {
+        display: 'flex',
+        flexDirection: 'column'
+    }
 }
