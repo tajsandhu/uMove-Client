@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from '@material-ui/core'
+import { Button, NativeSelect, option, InputLabel } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 import '../../styles/signup.css'
 import { Auth } from 'aws-amplify'
@@ -45,22 +45,52 @@ export default class Signup extends React.Component {
     render() {
         return(
             <div className='Signup-container'>
+                <TextInput
+                    id='first-name-text-field'
+                    label='First Name'
+                    function={() => {}}
+                    type='text'
+                    style={styles.textInput}
+                />
+                <TextInput
+                    id='last-name-text-field'
+                    label='Last Name'
+                    function={() => {}}
+                    type='text'
+                    style={styles.textInput}
+                />
+                <InputLabel htmlFor='gender-selector'>Gender</InputLabel>
+                <NativeSelect id='gender-selector'>
+                    <option value='Male'>Male</option>
+                    <option value='Female'>Female</option>
+                    <option value='Other'>Other</option>
+                </NativeSelect>
+                <TextInput
+                    id='birthdate-selector'
+                    label='Birth Date'
+                    type='date'
+                    style={styles.textInput}
+                    defaultValue='1901-01-01'
+                />
                 <TextInput 
+                    id='username-text-field'
                     label='Username' 
                     function={e => this.setState({username: e.target.value})} 
                     type='text'
                     style={styles.textInput}
                 />
                 <TextInput
+                    id='email-field'
                     label='Email'
                     function={e => this.setState({email: e.target.value})}
                     type='text'
                     style={styles.textInput}
                 />
                 <TextInput
+                    id='password-field'
                     label='Password'
                     function={e => this.setState({password: e.target.value})}
-                    type='password'
+                    type='text'
                     style={styles.textInput}
                 />
                 <div>

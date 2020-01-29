@@ -1,20 +1,27 @@
-import React from 'react'
-import { TextField } from '@material-ui/core'
+import React, {Fragment} from 'react'
+import { TextField, InputLabel } from '@material-ui/core'
 
 
 export function TextInput(props) {
     return(
-        <TextField
-            label={props.label}
-            placeholder={props.label}
-            onChange={props.function}
-            type={props.type}
-            inputProps={{
-                style: props.style
-            }}
-            InputProps={{
-                style: props.style
-            }}
-        />
+        <Fragment>
+            <InputLabel htmlFor={props.id}>{props.label}</InputLabel>
+        	<TextField
+                id={props.id}
+        	    placeholder={props.label}
+        	    onChange={props.function}
+        	    type={props.type}
+        	    inputProps={{
+        	        style: props.style
+        	    }}
+        	    InputProps={{
+        	        style: props.style
+        	    }}
+        	    InputLabelProps={
+        	        props.labelProps
+        	    }
+        	    defaultValue={props.default}
+        	/>
+        </Fragment>
     )
 }
