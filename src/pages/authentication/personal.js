@@ -35,8 +35,8 @@ export default class Personal extends React.Component {
                     style={styles.textInput}
                     defaultValue='1901-01-01'
                 />
-                <Button>Complete Sign Up</Button>
-                <Button>Cancel</Button>
+                <Button style={styles.button}>Complete Sign Up</Button>
+                <Button style={styles.button}>Cancel</Button>
             </div>
         )
     }

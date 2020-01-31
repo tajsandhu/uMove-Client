@@ -6,11 +6,17 @@
 		}
 	},
 	"auth": {
-		"umove38191e55": {
+		"umove2bdc3fdf": {
 			"service": "Cognito",
 			"providerPlugin": "awscloudformation",
-			"dependsOn": [],
-			"customAuth": false
+			"dependsOn": []
+		}
+	},
+	"function": {
+		"umovedf78a81cCustomMessage": {
+			"service": "Lambda",
+			"providerPlugin": "awscloudformation",
+			"build": true
 		}
 	}
 }

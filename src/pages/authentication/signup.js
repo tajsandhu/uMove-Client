@@ -12,28 +12,22 @@ export default class Signup extends React.Component {
             email: '',
             username: '',
             password: '',
+            confirm: '',
         }
     }
-    signUp = async () => {
+    toPersonal = async () => {
         
-        /*const thisemail = this.state.email
-        let user = null
-        try {
-            user = await Auth.signUp({
-                username: this.state.username,
-                password: this.state.password,
-                attributes: {
-                    email: thisemail
-                }
-            })
-
-        } catch(e) {
-            window.alert(e.message)
+        if (this.state.password === this.state.confirm && this.state.username != '' && this.state.email != ''){ 
+            this.props.history.push({pathname: './personal', 
+                                        state:{
+                                            email: this.state.email,
+                                            username: this.state.username,
+                                            password: this.state.password 
+                                        }})
         }
-        if (user != null) {
-            this.props.history.push('./confirm')
-        }*/
-        this.props.history.push('./personal')
+        else {
+            window.alert('Please fill every field')
+        }
     }
 
     confirm = () => {
@@ -70,14 +64,14 @@ export default class Signup extends React.Component {
                 <TextInput
                     id='confirm-password-field'
                     label='Confirm Password'
-                    function={e => this.setState({password: e.target.value})}
+                    function={e => this.setState({confirm: e.target.value})}
                     type='text'
                     style={styles.textInput}
                 />
                 <div>
                     <Link to={'./confirm'}>Confirm Code?</Link>
                 </div>
-                <Button className='Button' style={styles.button} onClick={this.signUp}>Sign Up</Button>
+                <Button className='Button' style={styles.button} onClick={this.toPersonal}>Sign Up</Button>
                 <Button className='Button' style={styles.button} onClick={this.cancel}>Cancel</Button>
             </div>
         )

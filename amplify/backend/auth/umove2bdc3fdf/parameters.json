@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "umove38191e55_identitypool_38191e55",
+    "identityPoolName": "umove2bdc3fdf_identitypool_2bdc3fdf",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "umove38191e55",
-    "userPoolName": "umove38191e55_userpool_38191e55",
+    "resourceNameTruncated": "umove2bdc3fdf",
+    "userPoolName": "umove2bdc3fdf_userpool_2bdc3fdf",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -18,7 +18,11 @@
     "passwordPolicyMinLength": 8,
     "passwordPolicyCharacters": [],
     "requiredAttributes": [
-        "email"
+        "birthdate",
+        "email",
+        "family_name",
+        "gender",
+        "given_name"
     ],
     "userpoolClientGenerateSecret": true,
     "userpoolClientRefreshTokenValidity": 30,
@@ -28,9 +32,9 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "umove338191e55_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "umove22bdc3fdf_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "resourceName": "umove38191e55",
+    "resourceName": "umove2bdc3fdf",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [
@@ -45,6 +49,11 @@
         ]
     },
     "useDefault": "default",
+    "triggers": "{}",
     "userPoolGroupList": [],
+    "parentStack": {
+        "Ref": "AWS::StackId"
+    },
+    "permissions": [],
     "dependsOn": []
 }
