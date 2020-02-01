@@ -2,7 +2,6 @@ import React from 'react'
 import { Button } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 import '../../styles/signup.css'
-import { Auth } from 'aws-amplify'
 import { TextInput } from '../../reusable'
 
 export default class Signup extends React.Component {
@@ -12,26 +11,21 @@ export default class Signup extends React.Component {
             email: '',
             username: '',
             password: '',
+            confirm: '',
         }
     }
-    signUp = async () => {
+    toPersonal = async () => {
         
-        const thisemail = this.state.email
-        let user = null
-        try {
-            user = await Auth.signUp({
-                username: this.state.username,
-                password: this.state.password,
-                attributes: {
-                    email: thisemail
-                }
-            })
-
-        } catch(e) {
-            window.alert(e.message)
+        if (this.state.password === this.state.confirm && this.state.username !== '' && this.state.email !== ''){ 
+            this.props.history.push({pathname: './personal', 
+                                        state:{
+                                            email: this.state.email,
+                                            username: this.state.username,
+                                            password: this.state.password 
+                                        }})
         }
-        if (user != null) {
-            this.props.history.push('./confirm')
+        else {
+            window.alert('Please fill every field')
         }
     }
 
@@ -46,27 +40,37 @@ export default class Signup extends React.Component {
         return(
             <div className='Signup-container'>
                 <TextInput 
+                    id='username-text-field'
                     label='Username' 
                     function={e => this.setState({username: e.target.value})} 
-                    type='text'
+                    type='email'
                     style={styles.textInput}
                 />
                 <TextInput
+                    id='email-field'
                     label='Email'
                     function={e => this.setState({email: e.target.value})}
                     type='text'
                     style={styles.textInput}
                 />
                 <TextInput
+                    id='password-field'
                     label='Password'
                     function={e => this.setState({password: e.target.value})}
+                    type='password'
+                    style={styles.textInput}
+                />
+                <TextInput
+                    id='confirm-password-field'
+                    label='Confirm Password'
+                    function={e => this.setState({confirm: e.target.value})}
                     type='password'
                     style={styles.textInput}
                 />
                 <div>
                     <Link to={'./confirm'}>Confirm Code?</Link>
                 </div>
-                <Button className='Button' style={styles.button} onClick={this.signUp}>Sign Up</Button>
+                <Button className='Button' style={styles.button} onClick={this.toPersonal}>Sign Up</Button>
                 <Button className='Button' style={styles.button} onClick={this.cancel}>Cancel</Button>
             </div>
         )

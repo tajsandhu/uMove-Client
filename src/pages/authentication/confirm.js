@@ -8,14 +8,14 @@ export default class Confirm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            email: '',
+            username: '',
             code: '',
         }
     }
     confirm = async () => {
         let user = null
         try {
-            user = await Auth.confirmSignUp(this.state.email, this.state.code)
+            user = await Auth.confirmSignUp(this.state.username, this.state.code)
 
         } catch(e) {
             window.alert(e.message)
@@ -33,14 +33,14 @@ export default class Confirm extends React.Component {
         return(
             <div className='Confirm-container'>
                 <TextInput
-                    label='Email'
-                    function={e => this.setState({email: e.target.value})}
+                    label='Username'
+                    function={e => this.setState({username: e.target.value})}
                     type='text'
                     style={styles.textInput}
                 />
                 <TextInput
                     label='Code'
-                    function={e => this.setState({email: e.target.value})}
+                    function={e => this.setState({code: e.target.value})}
                     type='text'
                     style={styles.textInput}
                 />
