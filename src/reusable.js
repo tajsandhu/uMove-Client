@@ -12,7 +12,7 @@ export function TextInput(props) {
         	    onChange={props.function}
         	    type={props.type}
         	    inputProps={{
-        	        style: props.style
+        	        style: props.style,
         	    }}
         	    InputProps={{
         	        style: props.style
@@ -20,7 +20,7 @@ export function TextInput(props) {
         	    InputLabelProps={
         	        props.labelProps
         	    }
-        	    defaultValue={props.default}
+				defaultValue={props.default}
         	/>
         </div>
     )

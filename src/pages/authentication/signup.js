@@ -43,7 +43,7 @@ export default class Signup extends React.Component {
                     id='username-text-field'
                     label='Username' 
                     function={e => this.setState({username: e.target.value})} 
-                    type='text'
+                    type='email'
                     style={styles.textInput}
                 />
                 <TextInput
@@ -57,14 +57,14 @@ export default class Signup extends React.Component {
                     id='password-field'
                     label='Password'
                     function={e => this.setState({password: e.target.value})}
-                    type='text'
+                    type='password'
                     style={styles.textInput}
                 />
                 <TextInput
                     id='confirm-password-field'
                     label='Confirm Password'
                     function={e => this.setState({confirm: e.target.value})}
-                    type='text'
+                    type='password'
                     style={styles.textInput}
                 />
                 <div>

@@ -18,22 +18,18 @@ export default class Personal extends React.Component {
         }
     }
 
-    test = () => {
-        console.log(this.state)
-    }
-
     signUp = async () => {
         
-        const email = this.state.location.state.email
+        const email = this.props.location.state.email
         const givenName = this.state.given_name
         const familyName = this.state.family_name
         const birthDate = this.state.birthdate
-        const gender = this.state.gander
+        const gender = this.state.gender
         let user = null
         try {
             user = await Auth.signUp({
-                username: this.state.username,
-                password: this.state.password,
+                username: this.props.location.state.username,
+                password: this.props.location.state.password,
                 attributes: {
                     email: email,
                     given_name: givenName,
@@ -87,7 +83,7 @@ export default class Personal extends React.Component {
                     style={styles.textInput}
                     defaultValue='1901-01-01'
                 />
-                <Button style={styles.button} onClick={this.test}>Complete Sign Up</Button>
+                <Button style={styles.button} onClick={this.signUp}>Complete Sign Up</Button>
                 <Button style={styles.button}>Cancel</Button>
             </div>
         )
