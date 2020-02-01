@@ -1,6 +1,5 @@
-import React, {Fragment} from 'react'
-import { TextField, InputLabel, StylesProvider } from '@material-ui/core'
-import { findByLabelText } from '@testing-library/react'
+import React from 'react'
+import { TextField, InputLabel } from '@material-ui/core'
 
 
 export function TextInput(props) {

@@ -1,8 +1,7 @@
 import React from 'react'
-import { Button, NativeSelect, option, InputLabel } from '@material-ui/core'
+import { Button } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 import '../../styles/signup.css'
-import { Auth } from 'aws-amplify'
 import { TextInput } from '../../reusable'
 
 export default class Signup extends React.Component {
@@ -17,7 +16,7 @@ export default class Signup extends React.Component {
     }
     toPersonal = async () => {
         
-        if (this.state.password === this.state.confirm && this.state.username != '' && this.state.email != ''){ 
+        if (this.state.password === this.state.confirm && this.state.username !== '' && this.state.email !== ''){ 
             this.props.history.push({pathname: './personal', 
                                         state:{
                                             email: this.state.email,

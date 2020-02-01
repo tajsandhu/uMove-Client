@@ -42,7 +42,6 @@ class App extends React.Component {
   }
 
   getAuthStatus() {
-    let answer = null
     Auth.currentAuthenticatedUser().then(response => {
       this.setState({signedIn: true})
     }).catch(e => {

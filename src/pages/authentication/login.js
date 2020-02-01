@@ -1,6 +1,6 @@
 import React from 'react'
 import { Auth } from 'aws-amplify'
-import { Button, createMuiTheme, MuiThemeProvider} from '@material-ui/core'
+import { Button } from '@material-ui/core'
 import '../../styles/login.css'
 import { TextInput } from '../../reusable'
 
@@ -55,13 +55,6 @@ export default class Login extends React.Component {
         )
     }
 }
-
-const theme = createMuiTheme({
-    palette: {
-        primary: { 500: '#ffffff'},
-        secondary: { main: '#000000'},
-    }
-})
 
 const styles = {
     button: {
