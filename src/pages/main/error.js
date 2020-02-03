@@ -1,5 +1,6 @@
 import React from 'react'
 
+/* TODO: give better error message */
 export default function Error() {
     return(
         <div>

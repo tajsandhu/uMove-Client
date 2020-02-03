@@ -13,14 +13,10 @@ export default class Upload extends React.Component {
             width: 500,
         }
     }
-    /*
-    printCurrentUser = () => {
-        const data = Auth.currentAuthenticatedUser().then((response => {
-          console.log(response['username'])
-        }))
-    }*/
     
+    //selects an image and updates the preview
     selectImage = (event) => {
+        //only updates the preview if a file is selected
         if (event != null) {
             this.setState({
                 img: event.target.files[0],
@@ -28,9 +24,10 @@ export default class Upload extends React.Component {
             })
         }
     }
-    
+
+    //TODO: implement an upload function
     uploadSelected = () => {
-        console.log(this.props.getShow)
+        console.log('Uploaded')
     }
 
     render() {
