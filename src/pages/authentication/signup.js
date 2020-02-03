@@ -14,9 +14,13 @@ export default class Signup extends React.Component {
             confirm: '',
         }
     }
+
+    //routes the user to the personal information page
+    /*TODO: add more checks*/
     toPersonal = async () => {
-        
+        // determines if the users passwords match and if the username or email are not empty
         if (this.state.password === this.state.confirm && this.state.username !== '' && this.state.email !== ''){ 
+            //routes the user to the personal information page and passes several necessary state variables
             this.props.history.push({pathname: './personal', 
                                         state:{
                                             email: this.state.email,
@@ -29,10 +33,12 @@ export default class Signup extends React.Component {
         }
     }
 
+    //routes the user to the confirm code page
     confirm = () => {
         this.props.history.push('./confirm')
     }
 
+    //returns the user to the login page
     cancel = () => {
         this.props.history.push('./login')
     }
@@ -77,6 +83,7 @@ export default class Signup extends React.Component {
     }
 }
 
+//inline styles
 const styles = {
     button: {
         background: 'linear-gradient(120deg, #076fa3 30%, #4fa870 83%)',

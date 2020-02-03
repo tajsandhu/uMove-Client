@@ -32,45 +32,40 @@ class App extends React.Component {
   }
 
   componentDidMount = () => {
+    //Used to determine if the user is logged in when the page loads up
     this.getAuthStatus()
   }
 
+  //prints the current authenticated users username to the console
+  //only used for testing purposes
   printCurrentUser = () => {
+    //gets the current users login credentials
     Auth.currentAuthenticatedUser().then((response => {
+      //prints the username once a response is recieved
       console.log(response['username'])
     }))
   }
 
+  //determines if the user is logged in
   getAuthStatus() {
+    //gets the current authenticated user
     Auth.currentAuthenticatedUser().then(response => {
+      //signedIn is set to true if the reponse is recieved
       this.setState({signedIn: true})
     }).catch(e => {
+      //if a user is not signed in, an error is thrown
+      //and signedIn is set to false
       if (e === 'not authenticated')
         this.setState({signedIn: false})
     })
   }
 
-  getShow() {
-    return this.state.show
-  }
-
-  selectImage = (event) => {
-    if (event != null) {
-      this.setState({
-        img: event.target.files[0],
-        imgURL: URL.createObjectURL(event.target.files[0]),
-        show: false
-      })
-    }
-  }
-
-  uploadSelected = () => {
-    window.alert(this.state.imgURL)
-  }
-
   render() {
     return (
       <BrowserRouter>
+        {/*Determines whether to route to the login
+           screen or the main screen depending on the 
+           state variable signedIn*/}
         {!this.state.signedIn &&
           <Redirect to='/login'/>
         }
