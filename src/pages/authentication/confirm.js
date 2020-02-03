@@ -12,19 +12,25 @@ export default class Confirm extends React.Component {
             code: '',
         }
     }
+
+    //confirms the users newly created account
     confirm = async () => {
         let user = null
+        //attempts to confirm the users code matches their username
+        //alerts the user if their is an error
         try {
             user = await Auth.confirmSignUp(this.state.username, this.state.code)
 
         } catch(e) {
             window.alert(e.message)
         }
+        //routes the user to the login screen upon success
         if (user != null) {
             this.props.history.push('./login')
         }
     }
 
+    //routes the user to the signup screen
     cancel = () => {
         this.props.history.push('./signup')
     }

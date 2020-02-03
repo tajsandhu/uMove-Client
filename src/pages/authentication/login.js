@@ -13,26 +13,26 @@ export default class Login extends React.Component {
         }
     }
 
-    componentDidMount() {
-        let user = Auth.currentAuthenticatedUser()
-        console.log(user)
-    }
-
+    //signs in the user
     signIn = async() => {
         let user = null
+        //attempt to sign in the user, display a message if that fails
+        /*TODO: refactor this function */
         try {
             user = await Auth.signIn(this.state.username, this.state.password)
         } catch(e) {
             window.alert(e.message)
         }
+        //routes to the main page if login is successful
         if (user != null)
             this.props.history.push('./main')
     }
+
+    //routes to the signup page
     signUp = () => {
         this.props.history.push('/signup')
     }
     render() {
-
         return (
             <div className='Login-container'> 
                 <div className='Element-container' style={{backgroundColor: 'white'}}>
@@ -56,6 +56,8 @@ export default class Login extends React.Component {
     }
 }
 
+
+// inline styles
 const styles = {
     button: {
         background: 'linear-gradient(120deg, #076fa3 30%, #4fa870 83%)',

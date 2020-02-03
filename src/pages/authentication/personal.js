@@ -18,14 +18,16 @@ export default class Personal extends React.Component {
         }
     }
 
+    //signs the user up with provided credentials
     signUp = async () => {
-        
         const email = this.props.location.state.email
         const givenName = this.state.given_name
         const familyName = this.state.family_name
         const birthDate = this.state.birthdate
         const gender = this.state.gender
         let user = null
+        //attempts to sign in user with provided credentials
+        //an error is alerted if it fails
         try {
             user = await Auth.signUp({
                 username: this.props.location.state.username,
@@ -42,11 +44,13 @@ export default class Personal extends React.Component {
         } catch(e) {
             window.alert(e.message)
         }
+        //routes the user to the confirmation code screen
         if (user != null) {
             this.props.history.push('./confirm')
         }
     }
 
+    //changes the gender state variable
     selectGender = name => e => {
         this.setState({[name]: e.target.value})
     }
@@ -90,6 +94,7 @@ export default class Personal extends React.Component {
     }
 }
 
+//inline style
 const styles = {
     button: {
         background: 'linear-gradient(120deg, #076fa3 30%, #4fa870 83%)',
